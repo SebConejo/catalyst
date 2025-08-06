@@ -1,0 +1,28 @@
+# This is a sample file for a manifest.yml manifest backend.
+# Read more about the manifest format here: https:/manifest.build/docs
+
+name: catlyst-backned
+entities:
+  Program:
+    properties:
+      - title
+      - { name: description, type: text }
+      - {
+          name: widget,
+          type: group,
+          options: { group: widget, multiple: false },
+        }
+    policies:
+      read:
+        - access: public
+
+groups:
+  widget:
+    properties:
+      - { name: title, type: string }
+      - { name: description, type: text }
+      - { name: nextEventDate, type: date }
+      - { name: applicationTime, type: number }
+      - { name: buttonText, type: string, helpText: 'Text for the button' }
+      - { name: buttonLink, type: link }
+      - { name: callLink, type: link }
